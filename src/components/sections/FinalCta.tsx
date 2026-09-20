@@ -1,31 +1,43 @@
-import { ctaText } from "../../config/site";
+import { ctaText, business } from "../../config/site";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
 import RevealOnScroll from "../ui/RevealOnScroll";
 
 export default function FinalCta() {
   return (
-    <section className="relative overflow-hidden bg-navy-950 py-24 text-cream-50 sm:py-32">
+    <section className="relative overflow-hidden bg-ink-950 py-24 text-paper-50 sm:py-32">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.4]"
+        className="pointer-events-none absolute inset-0 opacity-[0.5]"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 20% 20%, rgba(63,169,194,0.18), transparent 45%), radial-gradient(circle at 85% 75%, rgba(63,169,194,0.12), transparent 40%)",
+            "radial-gradient(circle at 15% 20%, rgba(38,64,47,0.5), transparent 45%), radial-gradient(circle at 85% 80%, rgba(184,92,46,0.12), transparent 40%)",
         }}
       />
       <Container className="relative">
         <RevealOnScroll className="mx-auto flex max-w-2xl flex-col items-center gap-7 text-center">
-          <h2 className="font-display text-[2.2rem] font-extrabold uppercase leading-[1.05] tracking-tight sm:text-[3rem]">
-            Let's bring back the clean.
+          <h2 className="font-display text-[2.2rem] font-bold uppercase leading-[1.02] tracking-tight sm:text-[3.1rem]">
+            Have A Tree Project?
           </h2>
-          <p className="max-w-lg text-lg leading-relaxed text-cream-50/75">
-            Tell us a little about the exterior cleaning you need and take
-            the first step toward a cleaner-looking home.
+          <p className="max-w-lg text-lg leading-relaxed text-paper-50/75">
+            Tell us what you're dealing with and take the first step toward
+            an estimate.
           </p>
-          <Button as="a" href="#quote" className="mt-2">
-            {ctaText.primary}
-          </Button>
+
+          <div className="mt-2 flex flex-col items-center gap-4 sm:flex-row">
+            <Button as="a" href="#estimate">
+              {ctaText.finalPrimary}
+            </Button>
+
+            <div className="flex flex-col items-center gap-1.5">
+              <span className="inline-flex items-center justify-center border border-paper-50/20 px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.1em] text-paper-50/50">
+                {ctaText.finalSecondary}
+              </span>
+              <span className="font-mono text-[11px] text-paper-50/40">
+                {business.phonePlaceholder}
+              </span>
+            </div>
+          </div>
         </RevealOnScroll>
       </Container>
     </section>

@@ -10,7 +10,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 420);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -23,25 +23,29 @@ export default function Header() {
     };
   }, [menuOpen]);
 
+  const solid = scrolled || menuOpen;
+
   return (
     <header
       id="top"
       className={`sticky top-0 z-50 w-full transition-colors duration-300 ${
-        scrolled
-          ? "bg-cream-50/90 shadow-[0_1px_0_0_rgba(15,28,43,0.08)] backdrop-blur-md"
-          : "bg-cream-50/0"
+        solid
+          ? "bg-paper-50 border-b border-ink-950/12 shadow-[0_1px_0_0_rgba(20,18,15,0.04)]"
+          : "bg-gradient-to-b from-ink-950/55 to-transparent border-b border-transparent"
       }`}
     >
       <Container>
         <div className="flex h-[76px] items-center justify-between">
-          <Logo />
+          <Logo tone={solid ? "dark" : "light"} />
 
-          <nav aria-label="Primary" className="hidden items-center gap-9 lg:flex">
+          <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
             {nav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-[15px] font-medium text-navy-800 transition-colors hover:text-accent-600"
+                className={`font-mono text-[12px] font-medium uppercase tracking-[0.1em] transition-colors ${
+                  solid ? "text-ink-800 hover:text-rust-600" : "text-paper-50/85 hover:text-paper-50"
+                }`}
               >
                 {item.label}
               </a>
@@ -49,7 +53,7 @@ export default function Header() {
           </nav>
 
           <div className="hidden lg:block">
-            <Button as="a" href="#quote">
+            <Button as="a" href="#estimate" variant={solid ? "primary" : "ghost"}>
               {ctaText.primary}
             </Button>
           </div>
@@ -60,7 +64,9 @@ export default function Header() {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             onClick={() => setMenuOpen((v) => !v)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-md text-navy-950 lg:hidden"
+            className={`inline-flex h-11 w-11 items-center justify-center lg:hidden ${
+              solid ? "text-ink-950" : "text-paper-50"
+            }`}
           >
             {menuOpen ? <CloseIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
           </button>
@@ -69,7 +75,7 @@ export default function Header() {
 
       <div
         id="mobile-menu"
-        className={`overflow-hidden border-t border-navy-900/10 bg-cream-50 transition-[max-height] duration-300 ease-out lg:hidden ${
+        className={`overflow-hidden border-t border-ink-950/10 bg-paper-50 transition-[max-height] duration-300 ease-out lg:hidden ${
           menuOpen ? "max-h-96" : "max-h-0 border-t-0"
         }`}
       >
@@ -80,12 +86,12 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-md px-2 py-3 text-base font-medium text-navy-900 hover:bg-navy-900/5"
+                className="px-2 py-3 font-mono text-sm font-medium uppercase tracking-[0.08em] text-ink-900 hover:bg-ink-950/5"
               >
                 {item.label}
               </a>
             ))}
-            <Button as="a" href="#quote" onClick={() => setMenuOpen(false)} className="mt-2 w-full">
+            <Button as="a" href="#estimate" onClick={() => setMenuOpen(false)} className="mt-2 w-full">
               {ctaText.primary}
             </Button>
           </nav>

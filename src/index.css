@@ -6,30 +6,45 @@
    rather than hard-coded hex values.
 --------------------------------------------------------------------- */
 @theme {
-  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Zilla Slab", "Georgia", serif;
   --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
 
-  --color-navy-950: #0b141f;
-  --color-navy-900: #0f1c2b;
-  --color-navy-800: #172a3d;
-  --color-navy-700: #22384e;
-  --color-navy-600: #33506b;
+  /* Near-black / charcoal — primary dark ground */
+  --color-ink-950: #14120f;
+  --color-ink-900: #1b1815;
+  --color-ink-800: #262220;
+  --color-ink-700: #37312c;
 
-  --color-cream-50: #faf8f4;
-  --color-cream-100: #f3f0ea;
-  --color-cream-200: #e9e4da;
+  /* Deep forest green — secondary dark, brand identity */
+  --color-forest-900: #142019;
+  --color-forest-800: #1c2e22;
+  --color-forest-700: #26402f;
+  --color-forest-600: #35543f;
+  --color-forest-500: #47694f;
 
-  --color-accent-400: #6fc6d9;
-  --color-accent-500: #3fa9c2;
-  --color-accent-600: #2c8aa1;
+  /* Warm off-white — primary light ground */
+  --color-paper-50: #f5f0e6;
+  --color-paper-100: #ede4d3;
+  --color-paper-200: #e1d3b8;
 
-  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-fade-in: fade-in 0.7s ease forwards;
+  /* Muted earth tones — secondary text/borders on light ground */
+  --color-bark-700: #4a3f30;
+  --color-bark-500: #6b5a45;
+  --color-bark-300: #a0876b;
+
+  /* Restrained accent — used sparingly */
+  --color-rust-600: #9c4b24;
+  --color-rust-500: #b85c2e;
+  --color-rust-400: #c97a4e;
+
+  --animate-fade-up: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fade-in 0.8s ease forwards;
 
   @keyframes fade-up {
     from {
       opacity: 0;
-      transform: translateY(28px);
+      transform: translateY(32px);
     }
     to {
       opacity: 1;
@@ -53,7 +68,7 @@
   }
 
   body {
-    @apply bg-cream-50 text-navy-900 antialiased;
+    @apply bg-paper-50 text-ink-950 antialiased;
     font-family: var(--font-body);
     overflow-x: hidden;
   }
@@ -66,11 +81,11 @@
   }
 
   ::selection {
-    @apply bg-accent-500/30;
+    @apply bg-rust-500/25;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-accent-500);
+    outline: 2px solid var(--color-rust-500);
     outline-offset: 3px;
   }
 }

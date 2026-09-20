@@ -14,12 +14,12 @@ export default function MobileStickyCta() {
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-40 border-t border-navy-900/10 bg-cream-50/95 p-3 backdrop-blur-md transition-transform duration-300 ease-out lg:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-40 border-t border-ink-950/10 bg-paper-50/95 p-3 backdrop-blur-md transition-transform duration-300 ease-out lg:hidden ${
         visible ? "translate-y-0" : "translate-y-full"
       }`}
       style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
     >
-      <Button as="a" href="#quote" className="w-full">
+      <Button as="a" href="#estimate" className="w-full">
         {ctaText.primary}
       </Button>
     </div>

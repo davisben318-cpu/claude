@@ -1,61 +1,63 @@
-import { business, ctaText } from "../../config/site";
+import { ctaText } from "../../config/site";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
-import HouseScene from "../illustrations/HouseScene";
-import PlaceholderBadge from "../ui/PlaceholderBadge";
+import PhotoPlaceholder from "../ui/PhotoPlaceholder";
 import { ArrowRightIcon } from "../ui/icons";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden pt-14 pb-20 sm:pt-20 sm:pb-28 lg:pt-24 lg:pb-32">
-      <Container>
-        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-6">
-            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-accent-600">
-              {business.region}
-            </span>
+    <section className="relative h-[94vh] min-h-[620px] w-full overflow-hidden">
+      <div className="absolute inset-0 h-full w-full">
+        <PhotoPlaceholder
+          variant="rig"
+          tone="ink"
+          badgePosition="corner"
+          label="DEMO IMAGE"
+          sublabel="Replace with approved Tree Plucker photography"
+          className="h-full w-full"
+        />
+      </div>
 
-            <h1 className="mt-5 font-display text-[2.6rem] font-extrabold uppercase leading-[0.98] tracking-tight text-navy-950 sm:text-[3.4rem] lg:text-[3.9rem]">
-              Make your home
-              <br />
-              look new again.
-            </h1>
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-ink-950/10"
+        aria-hidden="true"
+      />
 
-            <p className="mt-7 max-w-md text-lg leading-relaxed text-navy-700">
-              Thoughtful exterior cleaning for Buffalo homes — designed to
-              lift away the seasons and bring back the curb appeal.
-            </p>
+      <div className="pointer-events-none absolute right-5 top-6 hidden text-right sm:block sm:top-24">
+        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-paper-50/50">
+          Tree Removal
+          <br />
+          Western New York
+        </p>
+      </div>
 
-            <div className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center">
-              <Button as="a" href="#quote">
-                {ctaText.primary}
-              </Button>
-              <Button as="a" href="#services" variant="secondary">
-                {ctaText.secondary}
-                <ArrowRightIcon className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
+      <Container className="relative z-10 flex h-full flex-col justify-end pb-20 sm:pb-24">
+        <span className="flex flex-col font-mono text-xs font-medium uppercase tracking-[0.22em] text-rust-400">
+          <span>Tree Plucker WNY</span>
+          <span className="text-paper-50/60">Buffalo &amp; Western New York</span>
+        </span>
 
-          <div className="lg:col-span-6">
-            <div className="relative">
-              <div className="overflow-hidden rounded-[28px] border border-navy-900/10 shadow-[0_30px_60px_-25px_rgba(15,28,43,0.35)]">
-                <HouseScene variant="clean" className="h-auto w-full" />
-              </div>
-              <div className="absolute left-4 top-4 sm:left-5 sm:top-5">
-                <PlaceholderBadge />
-              </div>
-              <div className="absolute -bottom-6 -right-4 hidden rounded-2xl border border-navy-900/10 bg-cream-50 px-5 py-4 shadow-[0_20px_40px_-20px_rgba(15,28,43,0.3)] sm:block">
-                <p className="font-display text-2xl font-bold text-navy-950">
-                  Soft-wash
-                  <span className="text-accent-600">.</span>
-                </p>
-                <p className="mt-0.5 text-sm text-navy-700">
-                  Careful, surface-aware technique
-                </p>
-              </div>
-            </div>
-          </div>
+        <h1 className="mt-6 font-display text-[2.75rem] font-bold uppercase leading-[0.96] tracking-tight text-paper-50 sm:text-[4rem] lg:text-[5.25rem]">
+          Big trees.
+          <br />
+          Tight spaces.
+          <br />
+          No problem.
+        </h1>
+
+        <p className="mt-7 max-w-md text-lg leading-relaxed text-paper-50/80">
+          Professional tree removal and specialized tree services for
+          properties throughout Buffalo and Western New York.
+        </p>
+
+        <div className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center">
+          <Button as="a" href="#estimate">
+            {ctaText.primary}
+          </Button>
+          <Button as="a" href="#work" variant="ghost">
+            {ctaText.secondary}
+            <ArrowRightIcon className="h-4 w-4" />
+          </Button>
         </div>
       </Container>
     </section>

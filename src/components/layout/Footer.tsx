@@ -1,21 +1,21 @@
-import { business, nav, ctaText } from "../../config/site";
+import { business, nav, ctaText, DISCLAIMER } from "../../config/site";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
 import Logo from "./Logo";
 
 const footerLinks = [
   ...nav.filter((item) => item.label !== "About"),
-  { label: "Contact", href: "#quote" },
+  { label: "Contact", href: "#estimate" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-navy-900/10 bg-cream-100/50 pt-16 pb-10">
+    <footer className="border-t border-ink-950/10 bg-paper-100/50 pt-16 pb-10">
       <Container>
         <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-xs">
             <Logo />
-            <p className="mt-4 text-sm leading-relaxed text-navy-700">
+            <p className="mt-4 text-sm leading-relaxed text-ink-800/70">
               {business.region}
             </p>
           </div>
@@ -25,24 +25,21 @@ export default function Footer() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-navy-800 hover:text-accent-600"
+                className="font-mono text-xs font-medium uppercase tracking-[0.08em] text-ink-800 hover:text-rust-600"
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          <Button as="a" href="#quote" variant="secondary" className="self-start">
+          <Button as="a" href="#estimate" variant="secondary" className="self-start">
             {ctaText.primary}
           </Button>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-navy-900/10 pt-6 text-xs text-navy-700/70 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {new Date().getFullYear()} {business.name}. All rights reserved.</p>
-          <p>
-            {business.name} is a fictional business created as a website
-            design demo.
-          </p>
+        <div className="mt-12 flex flex-col gap-3 border-t border-ink-950/10 pt-6 text-xs text-ink-800/60 sm:flex-row sm:items-center sm:justify-between">
+          <p>&copy; {new Date().getFullYear()} {business.name} — concept only.</p>
+          <p>{DISCLAIMER}</p>
         </div>
       </Container>
     </footer>
