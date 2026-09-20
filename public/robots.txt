@@ -1,0 +1,6 @@
+# ClearWave is a fictional portfolio/demo website.
+# Sitemap included to demonstrate correct technical SEO structure.
+User-agent: *
+Allow: /
+
+Sitemap: https://clearwave-demo.example/sitemap.xml
