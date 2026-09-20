@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------
+   Theme tokens. To re-skin this template for a different business,
+   change the color values below — components reference these tokens
+   rather than hard-coded hex values.
+--------------------------------------------------------------------- */
+@theme {
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  --color-navy-950: #0b141f;
+  --color-navy-900: #0f1c2b;
+  --color-navy-800: #172a3d;
+  --color-navy-700: #22384e;
+  --color-navy-600: #33506b;
+
+  --color-cream-50: #faf8f4;
+  --color-cream-100: #f3f0ea;
+  --color-cream-200: #e9e4da;
+
+  --color-accent-400: #6fc6d9;
+  --color-accent-500: #3fa9c2;
+  --color-accent-600: #2c8aa1;
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fade-in 0.7s ease forwards;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream-50 text-navy-900 antialiased;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+  }
+
+  ::selection {
+    @apply bg-accent-500/30;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
