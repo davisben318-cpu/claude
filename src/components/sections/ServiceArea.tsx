@@ -1,4 +1,4 @@
-import { serviceAreaCopy, business } from "../../config/site";
+import { serviceAreaCopy, business, parentCompany } from "../../config/site";
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import RevealOnScroll from "../ui/RevealOnScroll";
@@ -50,6 +50,14 @@ export default function ServiceArea() {
                 <PinIcon className="h-5 w-5 text-rust-600" />
                 <span className="font-medium">{business.region}</span>
               </div>
+              <a
+                href={parentCompany.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-rust-600 underline underline-offset-4 hover:text-rust-500"
+              >
+                {parentCompany.name} →
+              </a>
             </SectionHeading>
           </RevealOnScroll>
 

@@ -1,8 +1,8 @@
-import { ctaText } from "../../config/site";
+import { ctaText, business } from "../../config/site";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
 import PhotoPlaceholder from "../ui/PhotoPlaceholder";
-import { ArrowRightIcon } from "../ui/icons";
+import { ArrowRightIcon, PhoneIcon } from "../ui/icons";
 
 export default function Hero() {
   return (
@@ -59,6 +59,14 @@ export default function Hero() {
             <ArrowRightIcon className="h-4 w-4" />
           </Button>
         </div>
+
+        <a
+          href={business.phoneHref}
+          className="mt-5 inline-flex items-center gap-2 font-mono text-sm text-paper-50/70 hover:text-paper-50"
+        >
+          <PhoneIcon className="h-4 w-4" />
+          Or call {business.phone}
+        </a>
       </Container>
     </section>
   );

@@ -1,7 +1,8 @@
-import { business, nav, ctaText, DISCLAIMER } from "../../config/site";
+import { business, nav, ctaText, socialLinks, DISCLAIMER } from "../../config/site";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
 import Logo from "./Logo";
+import { PinIcon, PhoneIcon } from "../ui/icons";
 
 const footerLinks = [
   ...nav.filter((item) => item.label !== "About"),
@@ -18,6 +19,19 @@ export default function Footer() {
             <p className="mt-4 text-sm leading-relaxed text-ink-800/70">
               {business.region}
             </p>
+            <div className="mt-4 flex flex-col gap-2">
+              <a
+                href={business.phoneHref}
+                className="flex items-center gap-2 text-sm font-medium text-ink-900 hover:text-rust-600"
+              >
+                <PhoneIcon className="h-4 w-4 shrink-0 text-rust-600" />
+                {business.phone}
+              </a>
+              <p className="flex items-start gap-2 text-sm leading-relaxed text-ink-800/70">
+                <PinIcon className="mt-0.5 h-4 w-4 shrink-0 text-rust-600" />
+                {business.address}
+              </p>
+            </div>
           </div>
 
           <nav aria-label="Footer" className="flex flex-wrap gap-x-8 gap-y-3">
@@ -30,9 +44,20 @@ export default function Footer() {
                 {item.label}
               </a>
             ))}
+            {socialLinks.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs font-medium uppercase tracking-[0.08em] text-ink-800 hover:text-rust-600"
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
 
-          <Button as="a" href="#estimate" variant="secondary" className="self-start">
+          <Button as="a" href="#estimate" variant="secondary" className="shrink-0 self-start whitespace-nowrap">
             {ctaText.primary}
           </Button>
         </div>

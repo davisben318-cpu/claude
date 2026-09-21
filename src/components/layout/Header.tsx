@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { nav, ctaText } from "../../config/site";
+import { nav, ctaText, business } from "../../config/site";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
 import Logo from "./Logo";
-import { MenuIcon, CloseIcon } from "../ui/icons";
+import { MenuIcon, CloseIcon, PhoneIcon } from "../ui/icons";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -52,7 +52,15 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="hidden lg:block">
+          <div className="hidden items-center gap-6 lg:flex">
+            <a
+              href={business.phoneHref}
+              className={`font-mono text-[12px] font-medium tracking-[0.04em] transition-colors ${
+                solid ? "text-ink-800 hover:text-rust-600" : "text-paper-50/85 hover:text-paper-50"
+              }`}
+            >
+              {business.phone}
+            </a>
             <Button as="a" href="#estimate" variant={solid ? "primary" : "ghost"}>
               {ctaText.primary}
             </Button>
@@ -76,7 +84,7 @@ export default function Header() {
       <div
         id="mobile-menu"
         className={`overflow-hidden border-t border-ink-950/10 bg-paper-50 transition-[max-height] duration-300 ease-out lg:hidden ${
-          menuOpen ? "max-h-96" : "max-h-0 border-t-0"
+          menuOpen ? "max-h-[28rem]" : "max-h-0 border-t-0"
         }`}
       >
         <Container>
@@ -94,6 +102,13 @@ export default function Header() {
             <Button as="a" href="#estimate" onClick={() => setMenuOpen(false)} className="mt-2 w-full">
               {ctaText.primary}
             </Button>
+            <a
+              href={business.phoneHref}
+              className="mt-3 flex items-center justify-center gap-2 font-mono text-sm font-medium text-ink-800"
+            >
+              <PhoneIcon className="h-4 w-4" />
+              {business.phone}
+            </a>
           </nav>
         </Container>
       </div>

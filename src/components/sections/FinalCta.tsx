@@ -30,11 +30,14 @@ export default function FinalCta() {
             </Button>
 
             <div className="flex flex-col items-center gap-1.5">
-              <span className="inline-flex items-center justify-center border border-paper-50/20 px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.1em] text-paper-50/50">
+              <a
+                href={business.phoneHref}
+                className="inline-flex items-center justify-center border border-paper-50/30 px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.1em] text-paper-50 transition-colors hover:border-paper-50/70"
+              >
                 {ctaText.finalSecondary}
-              </span>
-              <span className="font-mono text-[11px] text-paper-50/40">
-                {business.phonePlaceholder}
+              </a>
+              <span className="font-mono text-[11px] text-paper-50/50">
+                {business.phone}
               </span>
             </div>
           </div>

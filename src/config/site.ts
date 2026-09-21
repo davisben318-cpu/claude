@@ -3,10 +3,12 @@
  *
  * This is an UNOFFICIAL, UNAFFILIATED redesign concept made as a portfolio
  * piece for a real business (Tree Plucker, West Seneca, NY) — it is not
- * their website. Business-specific facts that weren't independently
- * verifiable (phone number, exact service list, years in business, etc.)
- * are represented as placeholders or generic, non-definitive copy rather
- * than invented. See DISCLAIMER below and the disclaimer bar / footer.
+ * their website. Contact details below (phone, address) are real and
+ * public; anything still not independently verifiable (exact service
+ * list, response times, etc.) stays as generic, non-definitive copy
+ * rather than invented. See DISCLAIMER below and the disclaimer bar /
+ * footer. There's no confirmed public business email, so contact is
+ * phone + the on-page form only — don't add one.
  *
  * To reuse this template for a different business, start by editing the
  * values in this file — most of the site reads from here instead of
@@ -21,11 +23,23 @@ export const business = {
   wordmark: "TREE PLUCKER",
   region: "Buffalo & Western New York",
   city: "West Seneca",
-  // Portfolio concept — no real contact channel is published.
-  phonePlaceholder: "Phone number to be confirmed",
-  email: "estimates@treeplucker-concept.example",
+  phone: "716-860-1986",
+  phoneHref: "tel:7168601986",
+  address: "1579 East and West Road, West Seneca, NY 14224",
   isDemo: true,
 } as const;
+
+export const parentCompany = {
+  name: "Weimer Tree Co",
+  url: "https://weimertree.com",
+  description:
+    "Tree Plucker is the large-tree removal arm of Weimer Tree Co, a family tree service that has served Western New York for over 50 years.",
+} as const;
+
+export const socialLinks = [
+  { label: "Facebook", href: "https://www.facebook.com/treeplucker" },
+  { label: "Instagram", href: "https://www.instagram.com/treeplucker" },
+] as const;
 
 export const nav = [
   { label: "Services", href: "#services" },
@@ -134,48 +148,56 @@ export const process = [
   },
 ] as const;
 
-export const galleryItems = [
-  { label: "Large Tree Removal", span: "wide" as const, variant: "rig" as const },
-  { label: "Property Cleanup", span: "tall" as const, variant: "canopy" as const },
-  { label: "Tight-Access Project", span: "small" as const, variant: "grid" as const },
-  { label: "Equipment In Action", span: "small" as const, variant: "rings" as const },
-];
-
-export const galleryDisclaimer =
-  "Demo placeholders — not photographs of actual Tree Plucker projects.";
+export const realWorkCopy = {
+  intro:
+    "This concept doesn't include real project photography. For actual jobs, see Tree Plucker's own channels:",
+  links: [
+    {
+      label: "Tree Plucker's Site",
+      href: "https://treeplucker.wordpress.com",
+      description:
+        "Video of a radio-control crane removal, a time-lapse of roughly 30 dead ash trees removed in the rain, and large cabled maples taken down near a house.",
+    },
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/treeplucker",
+      description: "Photos and updates from recent jobs.",
+    },
+  ],
+} as const;
 
 export const faqItems = [
   {
     question: "What information should I provide when requesting an estimate?",
     answer:
-      "Generally, it helps to describe the tree (size, condition, and location on the property), what you'd like done, and anything nearby — structures, fences, power lines, or landscaping — that could affect access.",
+      "It helps to describe the tree (size, condition, and location on the property), what you'd like done, and anything nearby — structures, fences, power lines, or landscaping — that could affect access. You can share these details through the form on this page or by calling directly.",
   },
   {
     question: "What types of tree projects can you help with?",
     answer:
-      "Tree removal, trimming, and work on large or difficult-access trees are common categories of tree service work. Business-specific service information should be confirmed with Tree Plucker.",
+      "Tree removal, trimming, and specialized work on large or hard-to-access trees are core parts of Tree Plucker's work, including radio-control crane and grapple-saw removals for bigger jobs.",
   },
   {
     question: "Can difficult-access tree projects be evaluated?",
     answer:
-      "Difficult-access situations — tight yards, nearby structures, or limited equipment access — are usually best evaluated on a case-by-case basis. Business-specific service information should be confirmed with Tree Plucker.",
+      "Yes — tight yards, nearby structures, and limited access are the kinds of situations that crane and grapple-saw equipment is built to handle. The best way to find out what a specific property needs is to request an estimate.",
   },
   {
     question: "What happens during the estimate process?",
     answer:
-      "Typically, a property and tree are assessed in person or through details you provide, so an approach and scope can be worked out before anything begins. Business-specific service information should be confirmed with Tree Plucker.",
+      `Reach out by phone at ${business.phone} or through the form on this page with details about the tree and property, and next steps can be worked out from there.`,
   },
   {
     question: "Do you work on residential properties?",
     answer:
-      "Residential tree removal and trimming are common parts of tree service work. Business-specific service information should be confirmed with Tree Plucker.",
+      "Residential tree removal and trimming are common parts of tree service work, and the tight-access equipment Tree Plucker uses is often well suited to residential yards specifically.",
   },
 ] as const;
 
 export const serviceAreaCopy = {
   eyebrow: "Serving Western New York",
   headline: "LOCAL TO WESTERN NEW YORK.",
-  body: `Tree Plucker is based in ${business.city}, NY, working with properties across Buffalo and the wider Western New York region.`,
+  body: `${parentCompany.description} Tree Plucker is based in ${business.city}, NY, working with properties across Buffalo and the wider Western New York region.`,
 } as const;
 
 export const projectTypeOptions = [
