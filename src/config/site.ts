@@ -106,6 +106,8 @@ export const equipmentCopy = {
   eyebrow: "The Difference Is In The Approach",
   headline: "EQUIPMENT THAT CHANGES THE JOB.",
   body: "Some tree projects aren't simple. Access, nearby structures, landscaping, and the size of the tree can all change how the work needs to be approached. Specialized equipment — like crane-assisted and grapple-saw systems — can make certain large or tight-access removals possible with less impact on the surrounding property.",
+  dealerNote:
+    "Tree Plucker is a dealer for HYPRO Grapple Saws, and was the first in the U.S. to use this attachment for crane tree removal.",
   disclaimer:
     "The equipment used on a given project depends on the job and should be confirmed directly with Tree Plucker — not every method is used on every removal.",
 } as const;

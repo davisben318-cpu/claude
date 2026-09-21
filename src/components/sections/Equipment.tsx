@@ -27,6 +27,9 @@ export default function Equipment() {
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-paper-50/75">
             {equipmentCopy.body}
           </p>
+          <p className="mt-5 max-w-xl text-base font-medium leading-relaxed text-rust-400">
+            {equipmentCopy.dealerNote}
+          </p>
           <p className="mt-5 max-w-xl font-mono text-xs leading-relaxed text-paper-50/45">
             {equipmentCopy.disclaimer}
           </p>
