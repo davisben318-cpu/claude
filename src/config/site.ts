@@ -149,21 +149,18 @@ export const process = [
 ] as const;
 
 export const realWorkCopy = {
-  intro:
-    "This concept doesn't include real project photography. For actual jobs, see Tree Plucker's own channels:",
-  links: [
-    {
-      label: "Tree Plucker's Site",
-      href: "https://treeplucker.wordpress.com",
-      description:
-        "Video of a radio-control crane removal, a time-lapse of roughly 30 dead ash trees removed in the rain, and large cabled maples taken down near a house.",
-    },
-    {
-      label: "Facebook",
-      href: "https://www.facebook.com/treeplucker",
-      description: "Photos and updates from recent jobs.",
-    },
-  ],
+  intro: "This concept doesn't include real project photography.",
+  // Descriptive only — not a link. This concept is meant to replace
+  // Tree Plucker's current site, not send visitors back to it, so this
+  // doesn't link out to treeplucker.wordpress.com even though that's
+  // where these videos actually live.
+  videoCallout:
+    "Real jobs: a radio-control crane removal, roughly 30 dead ash trees cleared in the rain, and large cabled maples taken down near a house.",
+  facebookLink: {
+    label: "Facebook",
+    href: "https://www.facebook.com/treeplucker",
+    description: "Photos and updates from recent jobs.",
+  },
 } as const;
 
 export const faqItems = [
