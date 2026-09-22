@@ -14,7 +14,7 @@ const tones = ["forest", "ink", "forest", "ink"] as const;
 const servicePhotos: Partial<Record<ServiceId, { src: string; alt: string }>> = {
   "specialized-removal": {
     src: craneRemovalCrew,
-    alt: "A crew member in an aerial lift cutting into a large tree trunk during a specialized removal",
+    alt: "A crew member in a knuckle-boom aerial lift cutting a large tree near power lines, with a second crane supporting the canopy",
   },
 };
 
