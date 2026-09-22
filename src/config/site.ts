@@ -47,6 +47,7 @@ export const nav = [
   { label: "Our Approach", href: "#approach" },
   { label: "About", href: "#about" },
   { label: "FAQ", href: "#faq" },
+  { label: "Reviews", href: "#reviews" },
 ] as const;
 
 export const ctaText = {
