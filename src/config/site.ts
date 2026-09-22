@@ -199,6 +199,29 @@ export const serviceAreaCopy = {
   body: `${parentCompany.description} Tree Plucker is based in ${business.city}, NY, working with properties across Buffalo and the wider Western New York region.`,
 } as const;
 
+// Real Google reviews, attributed exactly as written — do not add,
+// invent, or edit entries here.
+export const reviews = [
+  {
+    number: "01",
+    quote:
+      "Second time using Tree Plucker. They are amazing. They did more than expected and did it in an affordable, professional and timely manner. Couldn't recommend them enough.",
+    author: "Noelle Jankowiak",
+  },
+  {
+    number: "02",
+    quote:
+      "Recently had six trees removed all around my property, price was extremely fair, and the team worked quickly and did everything they could to make sure they didn't destroy my lawn, which was appreciated. Will absolutely be using them again if needed, and recommending to friends.",
+    author: "Mitch Riter",
+  },
+  {
+    number: "03",
+    quote:
+      "We have had Tree Plucker out 3 times over the past few years to take down 10 trees ranging from a 30\" base to 8\". Always have done a great job. I'm positive we will have them back for more. Greg is such a nice guy and treats you like a good friend.",
+    author: "Jim Figler",
+  },
+] as const;
+
 export const projectTypeOptions = [
   "Tree Removal",
   "Tree Trimming",

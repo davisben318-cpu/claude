@@ -10,6 +10,7 @@ import Work from "./components/sections/Work";
 import BuiltAroundTheWork from "./components/sections/BuiltAroundTheWork";
 import Process from "./components/sections/Process";
 import Faq from "./components/sections/Faq";
+import Reviews from "./components/sections/Reviews";
 import ServiceArea from "./components/sections/ServiceArea";
 import FinalCta from "./components/sections/FinalCta";
 import EstimateForm from "./components/sections/EstimateForm";
@@ -36,6 +37,7 @@ export default function App() {
         <BuiltAroundTheWork />
         <Process />
         <Faq />
+        <Reviews />
         <ServiceArea />
         <FinalCta />
         <EstimateForm />
