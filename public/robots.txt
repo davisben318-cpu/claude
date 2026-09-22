@@ -1,6 +1,6 @@
-# ClearWave is a fictional portfolio/demo website.
+# Tree Plucker WNY — unofficial redesign concept, not the real business site.
 # Sitemap included to demonstrate correct technical SEO structure.
 User-agent: *
 Allow: /
 
-Sitemap: https://clearwave-demo.example/sitemap.xml
+Sitemap: https://tree-plucker-redesign.example/sitemap.xml

@@ -1,38 +1,46 @@
+import DisclaimerBar from "./components/layout/DisclaimerBar";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import MobileStickyCta from "./components/layout/MobileStickyCta";
 import Hero from "./components/sections/Hero";
+import Introduction from "./components/sections/Introduction";
 import Services from "./components/sections/Services";
-import ValueProps from "./components/sections/ValueProps";
-import Reveal from "./components/sections/Reveal";
+import Equipment from "./components/sections/Equipment";
+import Work from "./components/sections/Work";
+import BuiltAroundTheWork from "./components/sections/BuiltAroundTheWork";
 import Process from "./components/sections/Process";
-import Testimonials from "./components/sections/Testimonials";
+import Faq from "./components/sections/Faq";
+import Reviews from "./components/sections/Reviews";
 import ServiceArea from "./components/sections/ServiceArea";
 import FinalCta from "./components/sections/FinalCta";
-import QuoteForm from "./components/sections/QuoteForm";
+import EstimateForm from "./components/sections/EstimateForm";
 
 export default function App() {
   return (
     <div className="flex min-h-screen flex-col">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-navy-950 focus:px-4 focus:py-2 focus:text-cream-50"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:bg-ink-950 focus:px-4 focus:py-2 focus:text-paper-50"
       >
         Skip to content
       </a>
 
+      <DisclaimerBar />
       <Header />
 
       <main id="main">
         <Hero />
+        <Introduction />
         <Services />
-        <ValueProps />
-        <Reveal />
+        <Equipment />
+        <Work />
+        <BuiltAroundTheWork />
         <Process />
-        <Testimonials />
+        <Faq />
+        <Reviews />
         <ServiceArea />
         <FinalCta />
-        <QuoteForm />
+        <EstimateForm />
       </main>
 
       <Footer />

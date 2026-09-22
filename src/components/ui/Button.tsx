@@ -3,14 +3,15 @@ import type { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from "reac
 type Variant = "primary" | "secondary" | "ghost";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-[15px] font-semibold tracking-wide transition-all duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-60 disabled:pointer-events-none";
+  "inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.1em] transition-all duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-50 disabled:pointer-events-none";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-accent-500 text-navy-950 hover:bg-accent-400 active:bg-accent-600 shadow-[0_1px_0_0_rgba(0,0,0,0.05)]",
+    "bg-forest-700 text-paper-50 hover:bg-forest-600 active:bg-forest-800",
   secondary:
-    "bg-transparent text-navy-900 border border-navy-900/25 hover:border-navy-900/60 hover:bg-navy-900/[0.03]",
-  ghost: "bg-transparent text-cream-50 border border-cream-50/30 hover:border-cream-50/70 hover:bg-cream-50/5",
+    "bg-transparent text-ink-950 border border-ink-950/30 hover:border-ink-950 hover:bg-ink-950/[0.03]",
+  ghost:
+    "bg-transparent text-paper-50 border border-paper-50/35 hover:border-paper-50/80 hover:bg-paper-50/5",
 };
 
 interface CommonProps {

@@ -1,58 +1,72 @@
-import { services, type ServiceId } from "../../config/site";
+import { services, servicesDisclaimer, type ServiceId } from "../../config/site";
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import RevealOnScroll from "../ui/RevealOnScroll";
-import {
-  HouseIcon,
-  DrivewayIcon,
-  DeckIcon,
-  ConcreteIcon,
-} from "../ui/icons";
-import type { ComponentType, SVGProps } from "react";
+import PhotoPlaceholder from "../ui/PhotoPlaceholder";
+import { ArrowRightIcon } from "../ui/icons";
+import craneRemovalCrew from "../../assets/photos/crane-removal-crew.jpg";
 
-const icons: Record<ServiceId, ComponentType<SVGProps<SVGSVGElement>>> = {
-  "house-washing": HouseIcon,
-  "driveway-cleaning": DrivewayIcon,
-  "deck-patio-cleaning": DeckIcon,
-  "concrete-cleaning": ConcreteIcon,
+const variants = ["rings", "grid", "contour", "canopy"] as const;
+const tones = ["forest", "ink", "forest", "ink"] as const;
+
+// Only services with approved real photography go here — the rest keep
+// the placeholder treatment until real photos are available for them too.
+const servicePhotos: Partial<Record<ServiceId, { src: string; alt: string }>> = {
+  "specialized-removal": {
+    src: craneRemovalCrew,
+    alt: "A crew member in a knuckle-boom aerial lift cutting a large tree near power lines, with a second crane supporting the canopy",
+  },
 };
-
-const spans = ["lg:col-span-7", "lg:col-span-5", "lg:col-span-5", "lg:col-span-7"];
 
 export default function Services() {
   return (
     <section id="services" className="scroll-mt-20 py-24 sm:py-32">
       <Container>
         <RevealOnScroll>
-          <SectionHeading
-            eyebrow="What We Do"
-            title="Exterior cleaning, done with care."
-          >
-            <p className="max-w-xl text-lg leading-relaxed text-navy-700">
-              Four focused services, each approached with the technique and
-              pressure that surface actually calls for.
+          <SectionHeading eyebrow="What We Do" title="Services">
+            <p className="max-w-xl text-lg leading-relaxed text-ink-800/80">
+              {servicesDisclaimer}
             </p>
           </SectionHeading>
         </RevealOnScroll>
 
-        <div className="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-12">
+        <div className="mt-16 flex flex-col gap-16 sm:gap-24">
           {services.map((service, i) => {
-            const Icon = icons[service.id];
+            const reversed = i % 2 === 1;
             return (
-              <RevealOnScroll key={service.id} delay={i * 80} className={`col-span-1 ${spans[i]}`}>
-                <article className="group relative flex h-full flex-col gap-6 overflow-hidden rounded-2xl border border-navy-900/10 bg-cream-100/60 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent-500/40 hover:bg-cream-50 hover:shadow-[0_24px_48px_-28px_rgba(15,28,43,0.35)] sm:p-10">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-navy-950 text-cream-50 transition-colors duration-300 group-hover:bg-accent-500 group-hover:text-navy-950">
-                    <Icon className="h-7 w-7" />
+              <RevealOnScroll key={service.id}>
+                <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10">
+                  <div
+                    className={`lg:col-span-7 ${reversed ? "lg:order-2" : "lg:order-1"}`}
+                  >
+                    <PhotoPlaceholder
+                      variant={variants[i]}
+                      tone={tones[i]}
+                      sublabel={`Replace with ${service.name.toLowerCase()} photography`}
+                      photo={servicePhotos[service.id]}
+                      className="aspect-[4/3] w-full sm:aspect-[16/9]"
+                    />
                   </div>
-                  <div>
-                    <h3 className="font-display text-xl font-bold text-navy-950 sm:text-2xl">
+
+                  <div className={`lg:col-span-5 ${reversed ? "lg:order-1" : "lg:order-2"}`}>
+                    <span className="font-mono text-4xl font-medium text-ink-950/15 sm:text-5xl">
+                      {service.number}
+                    </span>
+                    <h3 className="mt-3 font-display text-2xl font-bold uppercase tracking-tight text-ink-950 sm:text-3xl">
                       {service.name}
                     </h3>
-                    <p className="mt-3 max-w-md leading-relaxed text-navy-700">
+                    <p className="mt-4 max-w-sm leading-relaxed text-ink-800/80">
                       {service.description}
                     </p>
+                    <a
+                      href="#estimate"
+                      className="mt-6 inline-flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.14em] text-rust-600 hover:text-rust-500"
+                    >
+                      Get An Estimate
+                      <ArrowRightIcon className="h-3.5 w-3.5" />
+                    </a>
                   </div>
-                </article>
+                </div>
               </RevealOnScroll>
             );
           })}
