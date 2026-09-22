@@ -2,16 +2,17 @@ import { equipmentCopy } from "../../config/site";
 import Container from "../ui/Container";
 import RevealOnScroll from "../ui/RevealOnScroll";
 import PhotoPlaceholder from "../ui/PhotoPlaceholder";
+import knuckleboomLogLoading from "../../assets/photos/knuckleboom-log-loading.jpg";
 
 export default function Equipment() {
   return (
     <section className="bg-ink-950 text-paper-50">
       <RevealOnScroll>
         <PhotoPlaceholder
-          variant="rig"
-          tone="ink"
-          label="DEMO IMAGE"
-          sublabel="Approved equipment photography goes here"
+          photo={{
+            src: knuckleboomLogLoading,
+            alt: "A knuckle-boom crane truck loading a large tree log onto a flatbed trailer",
+          }}
           className="aspect-[16/9] w-full sm:aspect-[21/9]"
         />
       </RevealOnScroll>

@@ -1,12 +1,22 @@
-import { services, servicesDisclaimer } from "../../config/site";
+import { services, servicesDisclaimer, type ServiceId } from "../../config/site";
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import RevealOnScroll from "../ui/RevealOnScroll";
 import PhotoPlaceholder from "../ui/PhotoPlaceholder";
 import { ArrowRightIcon } from "../ui/icons";
+import craneRemovalCrew from "../../assets/photos/crane-removal-crew.jpg";
 
 const variants = ["rings", "grid", "contour", "canopy"] as const;
 const tones = ["forest", "ink", "forest", "ink"] as const;
+
+// Only services with approved real photography go here — the rest keep
+// the placeholder treatment until real photos are available for them too.
+const servicePhotos: Partial<Record<ServiceId, { src: string; alt: string }>> = {
+  "specialized-removal": {
+    src: craneRemovalCrew,
+    alt: "A crew member in an aerial lift cutting into a large tree trunk during a specialized removal",
+  },
+};
 
 export default function Services() {
   return (
@@ -33,6 +43,7 @@ export default function Services() {
                       variant={variants[i]}
                       tone={tones[i]}
                       sublabel={`Replace with ${service.name.toLowerCase()} photography`}
+                      photo={servicePhotos[service.id]}
                       className="aspect-[4/3] w-full sm:aspect-[16/9]"
                     />
                   </div>

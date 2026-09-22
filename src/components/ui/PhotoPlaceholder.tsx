@@ -16,6 +16,7 @@ export default function PhotoPlaceholder({
   label = "DEMO IMAGE",
   sublabel = "Replace with approved photography",
   badgePosition = "center",
+  photo,
   className = "",
   children,
 }: {
@@ -24,6 +25,8 @@ export default function PhotoPlaceholder({
   label?: string;
   sublabel?: string;
   badgePosition?: "center" | "corner" | "none";
+  /** Approved real photography. When set, renders the photo instead of the placeholder treatment. */
+  photo?: { src: string; alt: string };
   className?: string;
   children?: ReactNode;
 }) {
@@ -34,6 +37,20 @@ export default function PhotoPlaceholder({
     ink: "bg-gradient-to-br from-ink-900 via-ink-950 to-forest-900",
     paper: "bg-gradient-to-br from-bark-500 via-bark-700 to-ink-900",
   };
+
+  if (photo) {
+    return (
+      <div className={`relative overflow-hidden ${className}`}>
+        <img
+          src={photo.src}
+          alt={photo.alt}
+          loading="lazy"
+          className="h-full w-full object-cover"
+        />
+        {children}
+      </div>
+    );
+  }
 
   return (
     <div

@@ -3,17 +3,17 @@ import Container from "../ui/Container";
 import Button from "../ui/Button";
 import PhotoPlaceholder from "../ui/PhotoPlaceholder";
 import { ArrowRightIcon, PhoneIcon } from "../ui/icons";
+import craneLiftEastAurora from "../../assets/photos/crane-lift-east-aurora.jpg";
 
 export default function Hero() {
   return (
     <section className="relative h-[94vh] min-h-[620px] w-full overflow-hidden">
       <div className="absolute inset-0 h-full w-full">
         <PhotoPlaceholder
-          variant="rig"
-          tone="ink"
-          badgePosition="corner"
-          label="DEMO IMAGE"
-          sublabel="Replace with approved Tree Plucker photography"
+          photo={{
+            src: craneLiftEastAurora,
+            alt: "A crane and aerial lift working on a large bare tree next to a house in East Aurora, NY",
+          }}
           className="h-full w-full"
         />
       </div>

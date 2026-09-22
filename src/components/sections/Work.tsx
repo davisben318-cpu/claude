@@ -4,6 +4,7 @@ import SectionHeading from "../ui/SectionHeading";
 import RevealOnScroll from "../ui/RevealOnScroll";
 import PhotoPlaceholder from "../ui/PhotoPlaceholder";
 import { ArrowRightIcon } from "../ui/icons";
+import aerialCraneWork from "../../assets/photos/aerial-crane-work.jpg";
 
 export default function Work() {
   return (
@@ -20,9 +21,10 @@ export default function Work() {
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2">
           <RevealOnScroll className="flex h-full flex-col border border-ink-950/15">
             <PhotoPlaceholder
-              variant="rig"
-              tone="ink"
-              sublabel="No hosted video available to embed"
+              photo={{
+                src: aerialCraneWork,
+                alt: "Aerial view of a crane reaching between houses to remove a large tree",
+              }}
               className="aspect-[16/9] w-full"
             />
             <p className="p-8 leading-relaxed text-ink-800/80 sm:p-10">

@@ -151,7 +151,7 @@ export const process = [
 ] as const;
 
 export const realWorkCopy = {
-  intro: "This concept doesn't include real project photography.",
+  intro: "Real jobs from around Western New York.",
   // Descriptive only — not a link. This concept is meant to replace
   // Tree Plucker's current site, not send visitors back to it, so this
   // doesn't link out to treeplucker.wordpress.com even though that's
